@@ -140,7 +140,7 @@ jobs:
 
       - name: Upload debug APK artifact
         if: steps.apk.outputs.debug != ''
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ steps.version.outputs.tag }}-debug
           path: ${{ steps.apk.outputs.debug }}
@@ -148,7 +148,7 @@ jobs:
 
       - name: Upload release APK artifact
         if: steps.apk.outputs.release != ''
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ steps.version.outputs.tag }}-release
           path: ${{ steps.apk.outputs.release }}
@@ -169,7 +169,7 @@ jobs:
 
       - name: Upload debug build logs artifact
         if: steps.export_logs.outputs.log_file != ''
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: wiskful-debug-logs-${{ steps.version.outputs.version }}
           path: /tmp/debug_logs/debug_build_log.txt
