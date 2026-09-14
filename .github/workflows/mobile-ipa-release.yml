@@ -47,7 +47,7 @@ jobs:
           certificate-password: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
 
       - name: Download provisioning profiles
-        uses: Apple-Actions/download-provisioning-profiles@v1
+        uses: Apple-Actions/download-provisioning-profiles@v6
         with:
           bundle-id: com.wickedyoda.whiskful
           api-key-id: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
