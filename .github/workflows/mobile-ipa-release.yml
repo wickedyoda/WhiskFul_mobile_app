@@ -41,7 +41,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Import signing certificate
-        uses: Apple-Actions/import-codesign-certs@v1
+        uses: Apple-Actions/import-codesign-certs@v7
         with:
           certificate-base64: ${{ secrets.SIGNING_CERTIFICATE }}
           certificate-password: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
