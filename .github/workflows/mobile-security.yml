@@ -32,23 +32,13 @@ jobs:
         uses: github/codeql-action/init@v4
         with:
           languages: kotlin, java
-          build-mode: manual
+          build-mode: autobuild
           config: |
             paths:
               - android
 
-      - name: Build with Gradle for CodeQL
-        run: |
-          cd android
-          if [ ! -f gradlew ]; then
-            gradle wrapper --gradle-version 8.10.2 --distribution-type bin 2>&1 || true
-          fi
-          chmod +x gradlew 2>/dev/null || true
-          ./gradlew :app:compileDebugKotlin --no-daemon -Dorg.gradle.jvmargs="-Xmx4g" 2>&1 || true
-
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
-        continue-on-error: true
 
   security-secrets:
     name: Secrets Scan
